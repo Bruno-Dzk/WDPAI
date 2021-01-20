@@ -9,12 +9,15 @@ class DefaultController extends AppController {
 
         $this->render('login');
     }
-
-    public function main() {
-
+    
+    private function renderSecure($name){
         session_start();
         Shared::checkSession();
-        $this->render('main');
+        $this->render($name);
+    }
+
+    public function main() {
+        renderSecure('main');
     }
 
 
